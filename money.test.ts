@@ -510,7 +510,7 @@ tests['It should chain operations'] = (done) => {
 }
 // end chaining tests
 
-(function(){
+(function() {
   const errors: Err[] = []
   let pass = 0
   let counter = 0

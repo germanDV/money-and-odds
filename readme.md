@@ -45,13 +45,11 @@ Chaining:
 
 ## ODDS
 
-`Odds` represent a bet's price in the three main formats: _decimal_, _fractional_ and _american_. When creating an `Odds` instance, a `price` and `from format` are required. A default `from format` is provided as a private class property. As part of the instantiation, convertions are made to the other two formats, so that computations do not need to be done for every read.
+`Odds` represent a bet's price in the three main formats: _decimal_, _fractional_ and _american_. When creating an `Odds` instance, a `price` and `from format` are required. If no `format` is provided, _decimal_ is used as a default. As part of the instantiation, convertions are made to the other two formats and stored as public readonly properties on the instance.
 
 Create an `Odds` instance:
 ```javascript
 const price = new Odds(3.75, 'd')
-// TIP: only the first letter is used to tell the format, 'd' == 'decimal'
-// TIP: it's case insensitive, 'D' == 'd'
 ```
 
 Get `Odds` in all possible formats:
@@ -62,7 +60,21 @@ const priceAmerican = price.a    // string "+275"
 ```
 
 ## DOCS
-Other methods are available. For further details, you may check out intellisense in your editor, hopefully the combination of typescript and JSDoc comments will provide you with all the information you need. More importantly, check out the test suite.
+For further details, please check out the tests.
+
+
+## TESTS
+
+Run tests for `Money`:
+```sh
+$ tsc money.test.ts && node money.test.js
+```
+
+Run tests for `Odds`:
+```sh
+$ tsc odds.test.ts && node odds.test.js
+```
+
 
 ## ERRORS
 It throws errors with (hopefully) descriptive messages. So, if there's a risk of performing an invalid operation, like when creating a `Money` instance from unsanitized user input, wrap it in a `try / catch`.

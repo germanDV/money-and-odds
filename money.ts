@@ -35,7 +35,7 @@ export default class Money {
   }
 
   private validateNumber(n: any) {
-    if (typeof n !== 'number' || typeof n === 'string' || isNaN(n)) {
+    if ((typeof n !== 'number' && typeof n !== 'string') || isNaN(+n)) {
       throw this.ERRORS.nan(n)
     }
   }
