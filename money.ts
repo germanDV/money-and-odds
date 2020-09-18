@@ -101,7 +101,7 @@ export default class Money {
   /** 
    * Divides Money by a number
    */
-  over(n: number): Money {
+  divide(n: number): Money {
     if (!n && n !== 0) throw this.ERRORS.missingArg()
     this.validateNumber(n)
     if (+n === 0) {

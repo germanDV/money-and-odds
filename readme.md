@@ -22,7 +22,7 @@ Amounts are handled in the smallest subunit (cents), but a static method `fromUn
 - Addition: `const result = new Money(25_00).plus(new Money(80_00))`
 - Subtraction: `const result = new Money(25_00).minus(new Money(80_00))`
 - Multiplication: `const result = new Money(245_50).times(4)`
-- Division: `const result = new Money(245_50).over(4)`
+- Division: `const result = new Money(245_50).divide(4)`
 - Get subunit (amount in cents): `const subunits = new Money(300_00).getSubunit()`
 - Get unit (amount in dollars): `const units = new Money(300_00).getUnit()`
 - Get currency: `const currency = new Money(300_00).getCurrency()`

@@ -232,20 +232,20 @@ tests['It should throw if argument is invalid in multiplication'] = (done) => {
 }
 // end `times` tests
 
-// `over` tests
+// `divide` tests
 tests['It should perform a division'] = (done) => {
-  const res = new Money(800).over(4).getSubunit()
+  const res = new Money(800).divide(4).getSubunit()
   assert.strictEqual(res, 200)
   done()
 }
 
 tests['It should not divide by zero'] = (done) => {
-  assert.throws(() => new Money(100).over(0), new Error('Division by zero.'))
+  assert.throws(() => new Money(100).divide(0), new Error('Division by zero.'))
   done()
 }
 
 tests['It should divide by a negative amount'] = (done) => {
-  const res = new Money(900).over(-3).getSubunit()
+  const res = new Money(900).divide(-3).getSubunit()
   assert.strictEqual(res, -300)
   done()
 }
@@ -254,35 +254,35 @@ tests['It should throw if argument is missing in division'] = (done) => {
   const m = new Money(789)
   const expectedError = new Error('Missing required argument.')
   // @ts-ignore
-  assert.throws(() => m.over(), expectedError)
+  assert.throws(() => m.divide(), expectedError)
   // @ts-ignore
-  assert.throws(() => m.over(null), expectedError)
+  assert.throws(() => m.divide(null), expectedError)
   // @ts-ignore
-  assert.throws(() => m.over(undefined), expectedError)
+  assert.throws(() => m.divide(undefined), expectedError)
   // @ts-ignore
-  assert.throws(() => m.over(''), expectedError)
+  assert.throws(() => m.divide(''), expectedError)
   // @ts-ignore
-  assert.throws(() => m.over(false), expectedError)
+  assert.throws(() => m.divide(false), expectedError)
   done()
 }
 
 tests['It should throw if argument is invalid in division'] = (done) => {
   const m = new Money(789)
   // @ts-ignore
-  assert.throws(() => m.over('bad'), new Error('Argument "bad" is not a number.'))
+  assert.throws(() => m.divide('bad'), new Error('Argument "bad" is not a number.'))
   // @ts-ignore
-  assert.throws(() => m.over({}), new Error('Argument "[object Object]" is not a number.'))
+  assert.throws(() => m.divide({}), new Error('Argument "[object Object]" is not a number.'))
   done()
 }
 
 tests['It should round when division results in number with decimals'] = (done) => {
-  const res = new Money(10, 'USD').over(3)
+  const res = new Money(10, 'USD').divide(3)
   assert.strictEqual(res.getSubunit(), 3)
   assert.strictEqual(res.getUnit(), 0.03)
   assert.strictEqual(res.toString(), '$0.03')
   done()
 }
-// end `over` tests
+// end `divide` tests
 
 // `perc` tests
 tests['It should return % of Money'] = (done) => {
